@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.capstone.JobR.repository.ICommentMapper">
+
+	<!--           함수명         리턴타입             패키지주소 -->
+	<select id="getCommentList" resultType="com.capstone.JobR.comment.CommentVO">
+		SELECT * FROM comment
+	</select>
+
+	<insert id="insert"
+		parameterType="com.capstone.JobR.comment.CommentVO">
+		INSERT INTO comment
+		(boardNum, nickname, commentCont)
+		VALUES(#{boardNum},#{nickname}, #{commentCont})
+		<!--  = getBoardName(),getBoardCont(), ..                  -->
+	</insert>
+
+	<select id="getCommentContent"
+		resultType="com.capstone.JobR.comment.CommentVO">
+		SELECT * FROM comment
+		WHERE boardNum=#{boardNum}
+	</select>
+ 
+	<update id="update">
+		UPDATE comment
+		SET commentCont=#{comment.commentCont}
+		WHERE boardNum=#{boardNum} and commentNum=#{commentNum}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM comment
+		WHERE boardNum=#{boardNum} and commentNum=#{commentNum}
+	</delete>
+ 
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

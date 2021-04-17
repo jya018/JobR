@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.capstone.JobR.repository.IEmploymentMapper">
+
+	<!--           함수명         리턴타입             패키지주소 -->
+	<select id="getEmploymentList" resultType="com.capstone.JobR.employment.EmploymentVO">
+		SELECT * FROM employment
+	</select>
+	
+	<select id="getSortEmploymentList" resultType="com.capstone.JobR.employment.EmploymentVO">
+		SELECT * FROM employment
+		WHERE empSort = #{empSort}
+	</select>
+
+	<insert id="insert"
+		parameterType="com.capstone.JobR.employment.EmploymentVO">
+		INSERT INTO employment
+		(empName, empCont, empSort)
+		VALUES(#{empName}, #{empCont}, #{empSort})
+		<!--  = getBoardName(),getBoardCont(), ..                  -->
+	</insert>
+
+	<select id="getEmployment"
+		resultType="com.capstone.JobR.employment.EmploymentVO">
+		SELECT * FROM employment
+		WHERE empNum=#{empNum}
+	</select>
+
+	<update id="update">
+		UPDATE employment
+		SET empName=#{employment.empName},
+		empCont=#{employment.empCont}
+		WHERE empNum=#{empNum}
+	</update>
+ 
+	<delete id="delete">
+		DELETE FROM employment
+		WHERE empNum=#{empNum}
+	</delete>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

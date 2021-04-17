@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.capstone.JobR.repository.ISpecMapper">
+
+	<!--           함수명         리턴타입             패키지주소 -->
+	<select id="getSpecList" resultType="com.capstone.JobR.spec.SpecVO">
+		SELECT * FROM spec
+	</select>
+
+	<insert id="insert"
+		parameterType="com.capstone.JobR.spec.SpecVO">
+		INSERT INTO spec
+		(companyName, toeic, toefl, teps, opic, tos, internship, degree, score, id)
+		VALUES(#{companyName},#{toeic},#{toefl}, #{teps},#{opic},#{tos},#{internship},#{degree},#{score}, #{id})
+		<!--  = getBoardName(),getBoardCont(), ..                  -->
+	</insert>
+
+	<select id="getSpec"
+		resultType="com.capstone.JobR.spec.SpecVO">
+		SELECT * FROM spec
+		WHERE ID=#{ID}
+	</select>
+ 
+	<update id="update">
+		UPDATE spec
+		SET companyName=#{spec.companyName},
+		toeic=#{spec.toeic},
+		toefl=#{spec.toefl},
+		teps=#{spec.teps},
+		opic=#{spec.opic},
+		tos=#{spec.tos},
+		internship=#{spec.internship},
+		degree=#{spec.degree},
+		score=#{spec.score}
+		WHERE ID=#{ID}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM spec
+		WHERE ID=#{ID}
+	</delete>
+ 
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

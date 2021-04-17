@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.capstone.JobR.repository.IBoardMapper">
+
+	<!--           함수명         리턴타입             패키지주소 -->
+	<select id="getBoardList" resultType="com.capstone.JobR.board.BoardVO">
+		SELECT * FROM board
+		WHERE boardSort=#{boardSort}
+	</select>
+
+	<insert id="insert" parameterType="com.capstone.JobR.board.BoardVO">
+		INSERT INTO board
+		(boardName, boardCont, nickname, boardSort)
+		VALUES(#{boardName},#{boardCont},#{nickname}, #{boardSort})
+		<!--  = getBoardName(),getBoardCont(), ..                  -->
+	</insert>
+
+	<select id="getBoard" resultType="com.capstone.JobR.board.BoardVO">
+		SELECT * FROM board
+		WHERE boardNum=#{boardNum}
+	</select>
+
+	<update id="update">
+		UPDATE board
+		SET boardName=#{board.boardName},
+		boardCont=#{board.boardCont}
+		WHERE boardNum=#{boardNum}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM board
+		WHERE boardNum=#{boardNum}
+	</delete>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
