@@ -9,6 +9,7 @@
 	<select id="getBoardList" resultType="com.capstone.JobR.board.BoardVO">
 		SELECT * FROM board
 		WHERE boardSort=#{boardSort}
+		order by boardNum desc
 	</select>
 
 	<insert id="insert" parameterType="com.capstone.JobR.board.BoardVO">
