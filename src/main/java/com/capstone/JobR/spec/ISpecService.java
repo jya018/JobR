@@ -21,4 +21,10 @@ public interface ISpecService {
 	//스펙 삭제 기능 delete
 	int delete(String ID);
 	
+	//스펙으로 등록된 회사 목록
+	List<String> companyList();
+	
+	//해당 회사 스펙 목록 조회
+	List<SpecVO> companySpecList(String companyName);
+	
 }

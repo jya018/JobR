@@ -41,5 +41,15 @@ public class SpecService implements ISpecService {
 	public int delete(String ID) {
 		return mapper.delete(ID);
 	}
+	
+	@Override
+	public List<String> companyList() {
+		return mapper.companyList();
+	}
+	
+	@Override
+	public List<SpecVO> companySpecList(String companyName) {
+		return mapper.companySpecList(companyName);
+	}
 
 }

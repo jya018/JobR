@@ -63,5 +63,17 @@ public class SpecController {
 		return "fail";
 	}
 	
+	//스펙으로 등록된 회사 목록
+	@PutMapping
+	public List<String> CompanyList(){
+		return service.companyList();
+	}
+	
+	//해당 회사 스펙 목록 조회
+	@PostMapping("/{companyName}")
+	public List<SpecVO> companySpecList(@PathVariable String companyName){
+		return service.companySpecList(companyName);
+	}
+	
 	
 }

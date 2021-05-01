@@ -42,24 +42,14 @@
 		DELETE FROM spec
 		WHERE ID=#{ID}
 	</delete>
+	
+	<select id="companyList" resultType="String">
+		SELECT DISTINCT companyName FROM spec
+	</select>
+	
+	<select id="companySpecList" resultType="com.capstone.JobR.spec.SpecVO">
+		SELECT * FROM spec
+		WHERE  companyName = #{companyName}
+	</select>
  
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
