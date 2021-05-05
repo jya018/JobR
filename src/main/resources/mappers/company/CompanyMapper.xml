@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.capstone.JobR.repository.ICompanyMapper">
+
+	<!--           함수명         리턴타입             패키지주소 -->
+	<select id="getCompanyList" resultType="com.capstone.JobR.company.CompanyVO">
+		SELECT * FROM company
+	</select>
+
+	<insert id="insert"
+		parameterType="com.capstone.JobR.company.CompanyVO">
+		INSERT INTO company
+		(compName, compSort , compCeo, compEst, compType, compIpo, compSales, compEmp, compAvgSal, compPhNum, compLoc)
+		VALUES(#{compName},#{compSort}, #{compCeo}, #{compEst}, #{compType}, #{compIpo}, #{compSales}, #{compEmp},  #{compAvgSal},  #{compPhNum},  #{compLoc})
+		<!--  = getBoardName(),getBoardCont(), ..                  -->
+	</insert>
+
+	<select id="getCompany"
+		resultType="com.capstone.JobR.company.CompanyVO">
+		SELECT * FROM company
+		WHERE compName=#{compName}
+	</select>
+
+	<update id="update">
+		UPDATE company
+		SET compName=#{company.compName},
+			compSort=#{company.compSort},
+			compCeo=#{company.compCeo},
+			compEst=#{company.compEst},
+			compType=#{company.compType},
+			compIpo=#{company.compIpo},
+			compSales=#{company.compSales},
+			compEmp=#{company.compEmp},
+			compAvgSal=#{company.compAvgSal},
+			compPhNum=#{company.compPhNum},
+			compLoc=#{company.compLoc}
+		WHERE compName=#{compName}
+	</update>
+ 
+	<delete id="delete">
+		DELETE FROM company
+		WHERE compName=#{compName}
+	</delete>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
