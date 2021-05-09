@@ -1,7 +1,5 @@
 package com.capstone.JobR.user;
 
-import java.sql.Timestamp;
-
 public class UserVO {
 	
 	private String id;			//
@@ -9,7 +7,7 @@ public class UserVO {
 	private String email;		//
 	private String nickname;	//
 	private String jobSort;		//
-	private Timestamp regDate;
+	private String regDate;
 	
 	public UserVO() {
 		super();
@@ -61,14 +59,12 @@ public class UserVO {
 		this.jobSort = jobSort;
 	}
 
-	public Timestamp getRegDate() {
+	public String getRegDate() {
 		return regDate;
 	}
 
-	public void setRegDate(Timestamp regDate) {
+	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
-
-	
 	
 }
