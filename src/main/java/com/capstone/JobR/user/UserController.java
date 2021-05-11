@@ -38,7 +38,6 @@ public class UserController {
 	// 회원 가입 요청 처리
 	@PostMapping
 	public String regsiter(@RequestBody UserVO user) {
-		System.out.println(user);
 		service.register(user);
 		return "success";
 	}
@@ -96,11 +95,11 @@ public class UserController {
 				
 				//현재 세션목록 출력
 				System.out.println("로그인성공");
-				Enumeration<?> attrName = session.getAttributeNames();
-				while (attrName.hasMoreElements()) {
-					String attr = (String) attrName.nextElement();
-					System.out.println(session.getAttribute(attr));
-				}
+				/*
+				 * Enumeration<?> attrName = session.getAttributeNames(); while
+				 * (attrName.hasMoreElements()) { String attr = (String) attrName.nextElement();
+				 * System.out.println(session.getAttribute(attr)); }
+				 */
 
 				result = "loginSuccess";
 			}else {
@@ -123,11 +122,11 @@ public class UserController {
 			
 			//현재 세션목록 출력
 			System.out.println("로그아웃 성공");
-			Enumeration<?> attrName = session.getAttributeNames();
-			while (attrName.hasMoreElements()) {
-				String attr = (String) attrName.nextElement();
-				System.out.println(session.getAttribute(attr));
-			}
+			/*
+			 * Enumeration<?> attrName = session.getAttributeNames(); while
+			 * (attrName.hasMoreElements()) { String attr = (String) attrName.nextElement();
+			 * System.out.println(session.getAttribute(attr)); }
+			 */
 			
 //			session.invalidate();  //세션 초기화
 			
