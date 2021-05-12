@@ -70,7 +70,7 @@ public class UserController {
 	
 	//로그인 요청 처리
 	@PostMapping("/log/{id}")
-	public String loginCheck(@PathVariable String id, @RequestBody UserVO user, HttpSession session) {
+	public UserVO loginCheck(@PathVariable String id, @RequestBody UserVO user, HttpSession session) {
 		/*
 	       # 클라이언트가 전송한 id값과 pw값을 가지고 DB에서 회원의 정보를
 	        조회해서 불러온 다음 값 비교를 통해
@@ -83,7 +83,7 @@ public class UserController {
 		//1. HttpServletRequest객체 사용.
 		//HttpSession session = request.getSession();
 		
-		String result = null;
+//		String result = null;
 		UserVO DB = service.selectOne(id);
 
 		if(DB != null) {
@@ -91,15 +91,12 @@ public class UserController {
 				//로그인 성공, 세션 데이터 생성 (로그인 유지)
 				session.setAttribute(id, DB);
 				
-				result = "loginSuccess";
-			}else {
-				result = "PW Fail";
+//				result = "loginSuccess";
+				return DB;
 			}
-		}else {
-			result = "ID Fail";
 		}
-		
-		return result;
+		//ID 혹은 PW가 틀림 
+		return null;
 	}
 
 	// 로그아웃 처리
