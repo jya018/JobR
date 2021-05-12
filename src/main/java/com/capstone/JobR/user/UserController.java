@@ -1,7 +1,5 @@
 package com.capstone.JobR.user;
 
-import java.util.Enumeration;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,24 +88,18 @@ public class UserController {
 
 		if(DB != null) {
 			if(user.getPassword().equals(DB.getPassword())) {
-				//세션 데이터 생성 (로그인 유지)
+				//로그인 성공, 세션 데이터 생성 (로그인 유지)
 				session.setAttribute(DB.getId(), DB);
 				
-				//현재 세션목록 출력
-				System.out.println("로그인성공");
-				/*
-				 * Enumeration<?> attrName = session.getAttributeNames(); while
-				 * (attrName.hasMoreElements()) { String attr = (String) attrName.nextElement();
-				 * System.out.println(session.getAttribute(attr)); }
-				 */
-
-				result = "loginSuccess";
+//				result = "loginSuccess";
+				result = (String) session.getAttribute(DB.getId());
 			}else {
 				result = "PW Fail";
 			}
 		}else {
 			result = "ID Fail";
 		}
+		
 		return result;
 	}
 
@@ -118,15 +110,8 @@ public class UserController {
 		UserVO vo = (UserVO) session.getAttribute(id);
 
 		if (vo != null) {
+			//로그아웃 성공
 			session.removeAttribute(id);
-			
-			//현재 세션목록 출력
-			System.out.println("로그아웃 성공");
-			/*
-			 * Enumeration<?> attrName = session.getAttributeNames(); while
-			 * (attrName.hasMoreElements()) { String attr = (String) attrName.nextElement();
-			 * System.out.println(session.getAttribute(attr)); }
-			 */
 			
 //			session.invalidate();  //세션 초기화
 			
