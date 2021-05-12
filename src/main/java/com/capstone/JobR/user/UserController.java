@@ -91,8 +91,9 @@ public class UserController {
 				//로그인 성공, 세션 데이터 생성 (로그인 유지)
 				session.setAttribute(DB.getId(), DB);
 				
-//				result = "loginSuccess";
-				result = DB.toString();
+				if(session.getAttribute(DB.getId()) != null )
+				result = "loginSuccess";
+				else result = "sessionFail";
 			}else {
 				result = "PW Fail";
 			}
