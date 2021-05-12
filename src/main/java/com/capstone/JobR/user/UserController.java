@@ -105,12 +105,12 @@ public class UserController {
 	// 로그아웃 처리
 	@GetMapping("/log/{id}")
 	public String logout(@PathVariable String id,HttpSession session) {
-
-		//로그인했는지 세션 확인
-		if (session.getAttribute(id) != null) {
-			//로그아웃 성공
-			session.removeAttribute(id);
+		//로그아웃
+		session.removeAttribute(id);
 		
+		//로그아웃했는지 세션 확인
+		if (session.getAttribute(id) == null) {
+			//로그아웃 성공		
 			return "success";
 		}
 		return "fail";
