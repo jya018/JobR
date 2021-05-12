@@ -91,31 +91,26 @@ public class UserController {
 				//로그인 성공, 세션 데이터 생성 (로그인 유지)
 				session.setAttribute(DB.getId(), DB);
 				
-				if(session.getAttribute(DB.getId()) != null )
 				result = "loginSuccess";
-				else result = "sessionFail";
 			}else {
+				//비밀번호 틀림
 				result = "PW Fail";
 			}
 		}else {
+			//ID가 존재하지 않음
 			result = "ID Fail";
 		}
-		
 		return result;
 	}
 
 	// 로그아웃 처리
 	@GetMapping("/log/{id}")
 	public String logout(@PathVariable String id,HttpSession session) {
-
-		UserVO vo = (UserVO) session.getAttribute(id);
-
-		if (vo != null) {
+		//로그인했는지 세션 확인
+		if (session.getAttribute(id) != null) {
 			//로그아웃 성공
 			session.removeAttribute(id);
-			
-//			session.invalidate();  //세션 초기화
-			
+		
 			return "success";
 		}
 		return "fail";
