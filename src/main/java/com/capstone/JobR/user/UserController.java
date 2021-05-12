@@ -89,23 +89,23 @@ public class UserController {
 		if(DB != null) {
 			if(user.getPassword().equals(DB.getPassword())) {
 				//로그인 성공, 세션 데이터 생성 (로그인 유지)
-				session.setAttribute(DB.getId(), DB);
+				session.setAttribute(id, DB);
 				
-				result = "loginSuccess";
+				result = DB.getId()+" loginSuccess";
 			}else {
-				//비밀번호 틀림
 				result = "PW Fail";
 			}
 		}else {
-			//ID가 존재하지 않음
 			result = "ID Fail";
 		}
+		
 		return result;
 	}
 
 	// 로그아웃 처리
 	@GetMapping("/log/{id}")
 	public String logout(@PathVariable String id,HttpSession session) {
+
 		//로그인했는지 세션 확인
 		if (session.getAttribute(id) != null) {
 			//로그아웃 성공
