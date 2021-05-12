@@ -92,7 +92,7 @@ public class UserController {
 				session.setAttribute(DB.getId(), DB);
 				
 //				result = "loginSuccess";
-				result = (String) session.getAttribute(DB.getId());
+				result = DB.toString();
 			}else {
 				result = "PW Fail";
 			}
