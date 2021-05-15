@@ -45,14 +45,16 @@ public class GoodController {
 
 	// 회원 탈퇴 시, 좋아요 모두 삭제
 	@DeleteMapping("/{id}")
-	void deleteId(String id) {
+	String deleteId(String id) {
 		service.deleteId(id);
+		return "success";
 	}
 	
 	//게시글 삭제 시, 좋아요 모두 삭제
 	@PostMapping("/{boardNum}")
-	void deleteBoard(@PathVariable int boardNum) {
+	String deleteBoard(@PathVariable int boardNum) {
 		service.deleteBoard(boardNum);
+		return "success";
 	}
 
 }
