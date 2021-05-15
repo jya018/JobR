@@ -49,12 +49,5 @@ public class GoodController {
 		service.deleteId(id);
 		return "success";
 	}
-	
-	//게시글 삭제 시, 좋아요 모두 삭제
-	@PostMapping("/{boardNum}")
-	String deleteBoard(@PathVariable int boardNum) {
-		service.deleteBoard(boardNum);
-		return "success";
-	}
 
 }

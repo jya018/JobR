@@ -33,8 +33,4 @@ public class GoodService implements IGoodService {
 		mapper.deleteId(id);
 	}
 
-	@Override
-	public void deleteBoard(int boardNum) {
-		mapper.deleteBoard(boardNum);
-	}
 }

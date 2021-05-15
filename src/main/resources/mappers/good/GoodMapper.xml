@@ -28,10 +28,5 @@
 		WHERE id = #{id};
 		set SQL_SAFE_UPDATES = 1;
 	</delete>
-	
-	<delete id="deleteBoard">
-		DELETE FROM good
-		WHERE boardNum = #{boardNum}
-	</delete>
 	 
 </mapper>
