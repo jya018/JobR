@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.capstone.JobR.repository.IGoodMapper">
+
+	<select id="selectId" resultType="com.capstone.JobR.good.GoodVO">
+		SELECT boardNum FROM good 
+		WHERE id = #{id}
+	</select>
+
+	<insert id="insert">
+		INSERT INTO good
+		(boardNum, id)
+		VALUES(#{boardNum}, #{id})
+		<!--  = getBoardName(),getBoardCont(), ..                  -->
+	</insert>
+
+	<delete id="delete">
+		DELETE FROM good
+		WHERE boardNum = #{boardNum} AND id = #{id}
+	</delete>
+	
+	<delete id="deleteId">
+		DELETE FROM good
+		WHERE id = #{id}
+	</delete>
+	
+	<delete id="deleteBoard">
+		DELETE FROM good
+		WHERE boardNum = #{boardNum}
+	</delete>
+	
+	
+ 
+</mapper>
