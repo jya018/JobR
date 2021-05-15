@@ -6,7 +6,7 @@
 	namespace="com.capstone.JobR.repository.IGoodMapper">
 
 	<select id="selectId" resultType="com.capstone.JobR.good.GoodVO">
-		SELECT boardNum FROM good 
+		SELECT * FROM good 
 		WHERE id = #{id}
 	</select>
 
