@@ -28,10 +28,10 @@
 	</delete>
 	
 	<delete id="deleteBoard">
+		set SQL_SAFE_UPDATES = 0;
 		DELETE FROM good
-		WHERE boardNum = #{boardNum}
+		WHERE boardNum = #{boardNum};
+		set SQL_SAFE_UPDATES = 1;
 	</delete>
-	
-	
- 
+	 
 </mapper>

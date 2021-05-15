@@ -23,4 +23,5 @@ public interface IGoodMapper {
 	
 	//게시글 삭제 시, 좋아요 모두 삭제
 	void deleteBoard(int boardNum);
+	
 }
