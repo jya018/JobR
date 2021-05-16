@@ -23,10 +23,20 @@
 	</delete>
 	
 	<delete id="deleteId">
-		set SQL_SAFE_UPDATES = 0;
 		DELETE FROM good
-		WHERE id = #{id};
-		set SQL_SAFE_UPDATES = 1;
+		WHERE id = #{id}
 	</delete>
+	
+	<update id="addGood">
+		UPDATE board 
+		SET good = good + 1
+		WHERE boardNum = #{boardNum} 
+	</update>
+	
+	<update id="subGood">
+		UPDATE board 
+		SET good = good - 1
+		WHERE boardNum = #{boardNum} 
+	</update>
 	 
 </mapper>

@@ -15,7 +15,8 @@ public class GoodService implements IGoodService {
 
 	@Override
 	public int insert(int boardNum, String id) {
-		return mapper.insert(boardNum, id);
+		mapper.insert(boardNum, id);
+		return mapper.addGood(boardNum);
 	}
 
 	@Override
@@ -25,7 +26,8 @@ public class GoodService implements IGoodService {
 
 	@Override
 	public int delete(int boardNum, String id) {
-		return mapper.delete(boardNum, id);
+		mapper.delete(boardNum, id);
+		return mapper.subGood(boardNum);
 	}
 
 	@Override

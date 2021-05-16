@@ -19,6 +19,11 @@ public interface IGoodMapper {
 	int delete(int boardNum, String id);
 
 	// 회원 탈퇴 시, 좋아요 모두 삭제
-	void deleteId(String id);
+	int deleteId(String id);
 	
+	//좋아요 더하기
+	int addGood(int boardNum);
+	
+	//좋아요 빼기
+	int subGood(int boardNum);
 }
