@@ -35,6 +35,12 @@
 		DELETE FROM board
 		WHERE boardNum=#{boardNum}
 	</delete>
+	
+	<update id="viewCnt">
+		UPDATE board
+		SET view = view + 1
+		WHERE boardNum = #{boardNum}
+	</update>
 
 </mapper>
 

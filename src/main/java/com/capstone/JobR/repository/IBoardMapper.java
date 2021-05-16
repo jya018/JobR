@@ -22,5 +22,8 @@ public interface IBoardMapper {
 	
 	//게시글 삭제 기능 delete
 	int delete(int boardNum);
+	
+	//게시글 조회수 처리
+	int viewCnt(int boardNum);
 
 }
