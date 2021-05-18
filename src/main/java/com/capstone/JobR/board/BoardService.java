@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.capstone.JobR.board.model.BoardVO;
 import com.capstone.JobR.repository.IBoardMapper;
 
 @Service
@@ -41,4 +42,16 @@ public class BoardService implements IBoardService {
 		return mapper.delete(boardNum);
 	}
 
+	
+	@Override 
+	  public List<BoardVO> getSearchList(String option,String keywords){ 
+		  return mapper.getSearchList(option, keywords);
+	  
+	  }
+	  
+	  @Override 
+	  public List<BoardVO> getboardSearchList(String boardSort,String option,String keywords){ 
+		  return mapper.getboardSearchList(boardSort,option, keywords);
+	  
+	  }
 }

@@ -3,6 +3,7 @@ package com.capstone.JobR.repository;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.capstone.JobR.board.BoardVO;
 
@@ -25,5 +26,9 @@ public interface IBoardMapper {
 	
 	//게시글 조회수 처리
 	int viewCnt(int boardNum);
+	
+	List<BoardVO> getSearchList(@Param("option") String option, @Param("keywords") String keywords);
+	
+	List<BoardVO> getboardSearchList(@Param("boardSort") String boardSort,@Param("option") String option, @Param("keywords") String keywords);
 
 }

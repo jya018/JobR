@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.capstone.JobR.board.repository.ISearchMapper">
+
+<sql id="search">
+ 
+	  <if test="option == '제목'">
+         WHERE boardName LIKE concat('%',#{keywords},'%')
+      </if>
+      
+      <if test="option == '내용'">
+         WHERE boardCont LIKE concat('%',#{keywords},'%')
+      </if>
+      
+      <if test="option == '닉네임'">
+         WHERE nickname LIKE concat('%',#{keywords},'%')
+	  </if>
+	  
+</sql>
+
+	<!--           함수명         리턴타입             패키지주소 -->
+	<select id="getSearchList" resultType="com.capstone.JobR.board.model.BoardVO">
+		SELECT * FROM board
+		<include refid="search"></include>
+	</select>
+		
+		
+<select id="getboardSearchList" resultType="com.capstone.JobR.board.model.BoardVO">
+		SELECT * FROM board
+		<include refid="boardsearch"></include>
+	</select>
+	
+<sql id="boardsearch">
+ 	
+	  <if test="option == '제목'">
+       	WHERE boardSort=#{boardSort} and boardName LIKE concat('%',#{keywords},'%')
+      </if>
+      
+      <if test="option == '내용'">
+       	 WHERE boardSort=#{boardSort} and boardCont LIKE concat('%',#{keywords},'%')
+      </if>
+      
+      <if test="option == '닉네임'">
+         WHERE boardSort=#{boardSort} AND nickname LIKE concat('%',#{keywords},'%')
+	  </if>
+</sql>	
+		
+		
+		
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
