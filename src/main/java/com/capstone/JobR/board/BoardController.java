@@ -68,6 +68,7 @@ public class BoardController {
 		return service.getSearchList(option,keywords);
 	  
 	}
+	/*
 	//각 카테고리내에서 검색
 	@GetMapping ("/search/{boardSort}/{option}/{keywords}")
 	List<BoardVO> boardSortcontent(@PathVariable("boardSort") String boardSort,@PathVariable("option") String option, @PathVariable("keywords") String keywords) 
@@ -76,4 +77,5 @@ public class BoardController {
 		return service.getboardSearchList(boardSort,option,keywords);
 	  
 	}
+	*/
 }
