@@ -3,7 +3,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper
-	namespace="com.capstone.JobR.board.repository.ISearchMapper">
+	namespace="com.capstone.JobR.board.repository.IBoardMapper">
 
 <sql id="search">
  
@@ -22,13 +22,13 @@
 </sql>
 
 	<!--           함수명         리턴타입             패키지주소 -->
-	<select id="getSearchList" resultType="com.capstone.JobR.board.model.BoardVO">
+	<select id="getSearchList" resultType="com.capstone.JobR.board.BoardVO">
 		SELECT * FROM board
 		<include refid="search"></include>
 	</select>
 		
 		
-<select id="getboardSearchList" resultType="com.capstone.JobR.board.model.BoardVO">
+<select id="getboardSearchList" resultType="com.capstone.JobR.board.BoardVO">
 		SELECT * FROM board
 		<include refid="boardsearch"></include>
 	</select>
