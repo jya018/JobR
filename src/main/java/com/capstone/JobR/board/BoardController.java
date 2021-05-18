@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capstone.JobR.board.model.BoardVO;
+
 @RestController
 @RequestMapping("/board")	// URI -> localhost:8080/board
 public class BoardController {
@@ -56,5 +58,22 @@ public class BoardController {
 			return "success";
 		}
 		return "fail";
+	}
+	
+	//메인 화면에서 모든 게시글 검색
+	@GetMapping ("/search/{option}/{keywords}")
+	List<BoardVO> content(@PathVariable("option") String option, @PathVariable("keywords") String keywords) 
+	{   
+		  
+		return service.getSearchList(option,keywords);
+	  
+	}
+	//각 카테고리내에서 검색
+	@GetMapping ("/search/{boardSort}/{option}/{keywords}")
+	List<BoardVO> boardSortcontent(@PathVariable("boardSort") String boardSort,@PathVariable("option") String option, @PathVariable("keywords") String keywords) 
+	{   
+		
+		return service.getboardSearchList(boardSort,option,keywords);
+	  
 	}
 }

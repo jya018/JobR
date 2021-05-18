@@ -2,6 +2,8 @@ package com.capstone.JobR.board;
 
 import java.util.List;
 
+import com.capstone.JobR.board.BoardVO;
+
 public interface IBoardService {
 	//게시글 등록 기능
 	int insert(BoardVO article);
@@ -17,4 +19,8 @@ public interface IBoardService {
 
 	//게시글 삭제 기능 delete
 	int delete(int boardNum);
+	
+	List<BoardVO> getSearchList(String option, String keywords);
+	
+	List<BoardVO> getboardSearchList(String boardSort,String option, String keywords);
 }
