@@ -62,7 +62,7 @@ public class BoardController {
 	
 	//메인 화면에서 모든 게시글 검색
 	@GetMapping ("/search/{option}/{keywords}")
-	List<BoardVO> content(@PathVariable("option") String option, @PathVariable("keywords") String keywords) 
+	List<BoardVO> searchcontent(@PathVariable("option") String option, @PathVariable("keywords") String keywords) 
 	{   
 		  
 		return service.getSearchList(option,keywords);
