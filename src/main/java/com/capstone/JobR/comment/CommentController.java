@@ -43,18 +43,18 @@ public class CommentController {
 	}
 
 	// 게시글의 특정 댓글 수정 처리 요청
-	@PutMapping("/{boardNum}/{commentNum}")  //GET + POST  수정할 (게시판 번호 + 게시판 정보)
-	public String modify(@PathVariable int boardNum,@PathVariable int commentNum, @RequestBody CommentVO comment) {
-		if (service.update(boardNum, commentNum, comment) == 1) {
+	@PutMapping("{commentNum}")  //GET + POST  수정할 (게시판 번호 + 게시판 정보)
+	public String modify(@PathVariable int commentNum, @RequestBody CommentVO comment) {
+		if (service.update( commentNum, comment) == 1) {
 			return "success";
 		};
 		return "fail";
 	}
 	
 	// 게시글 삭제 처리 요청
-	@DeleteMapping("/{boardNum}/{commentNum}")	//ex) 1번 게시글 삭제 : localhost:8080/board/1 
-	public String delete(@PathVariable int boardNum,@PathVariable int commentNum) {
-		if(service.delete(boardNum,commentNum) == 1) {
+	@DeleteMapping("{commentNum}")	//ex) 1번 게시글 삭제 : localhost:8080/board/1 
+	public String delete(@PathVariable int commentNum) {
+		if(service.delete(commentNum) == 1) {
 			return "success";
 		}
 		return "fail";

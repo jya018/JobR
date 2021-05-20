@@ -27,12 +27,12 @@
 	<update id="update">
 		UPDATE comment
 		SET commentCont=#{comment.commentCont}
-		WHERE boardNum=#{boardNum} and commentNum=#{commentNum}
+		WHERE commentNum=#{commentNum}
 	</update>
 
 	<delete id="delete">
 		DELETE FROM comment
-		WHERE boardNum=#{boardNum} and commentNum=#{commentNum}
+		WHERE commentNum=#{commentNum}
 	</delete>
  
 </mapper>

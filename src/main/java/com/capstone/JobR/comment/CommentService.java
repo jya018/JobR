@@ -31,13 +31,13 @@ public class CommentService implements ICommentService {
 	}
 
 	@Override
-	public int update(int boardNum, int commentNum, CommentVO comment) {
-		return mapper.update(boardNum, commentNum, comment);
+	public int update(int commentNum, CommentVO comment) {
+		return mapper.update(commentNum, comment);
 	}
 
 	@Override
-	public int delete(int boardNum, int commentNum) {
-		return mapper.delete(boardNum, commentNum);
+	public int delete(int commentNum) {
+		return mapper.delete(commentNum);
 	}
 
 }

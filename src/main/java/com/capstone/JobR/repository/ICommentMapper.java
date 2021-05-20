@@ -20,9 +20,9 @@ public interface ICommentMapper {
 	//CommentVO getComment(int boardNum);
 	
 	//게시글 수정 기능 update
-	int update(@Param("boardNum") int boardNum,@Param("commentNum") int commentNum, @Param("comment") CommentVO comment);
+	int update(@Param("commentNum") int commentNum, @Param("comment") CommentVO comment);
 	
 	//게시글 삭제 기능 delete
-	int delete(@Param("boardNum") int boardNum,@Param("commentNum") int commentNum);
+	int delete(@Param("commentNum") int commentNum);
 
 }

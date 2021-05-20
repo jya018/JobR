@@ -13,8 +13,8 @@ public interface ICommentService {
 	List<CommentVO> getCommentContent(int boardNum);
 	
 	//게시글 수정 기능 update
-	int update(int boardNum, int commentNum, CommentVO comment);
+	int update(int commentNum, CommentVO comment);
 
 	//게시글 삭제 기능 delete
-	int delete(int boardNum, int commentNum);
+	int delete(int commentNum);
 }
