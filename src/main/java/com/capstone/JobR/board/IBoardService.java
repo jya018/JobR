@@ -20,7 +20,15 @@ public interface IBoardService {
 	//게시글 삭제 기능 delete
 	int delete(int boardNum);
 	
+	//메인 화면에서 모든 게시글 검색
 	List<BoardVO> getSearchList(String option, String keywords);
 	
+	//각 카테고리내에서 검색
 	List<BoardVO> getboardSearchList(String boardSort,String option, String keywords);
+	
+	//모든 게시글 조회
+	List<BoardVO> getAll();
+	
+	//모든 게시글 좋아요 순으로 조회
+	List<BoardVO> getGoodBoard();
 }

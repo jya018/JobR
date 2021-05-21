@@ -27,8 +27,16 @@ public interface IBoardMapper {
 	//게시글 조회수 처리
 	int viewCnt(int boardNum);
 	
+	//메인 화면에서 모든 게시글 검색
 	List<BoardVO> getSearchList(@Param("option") String option, @Param("keywords") String keywords);
 	
+	//각 카테고리내에서 검색
 	List<BoardVO> getboardSearchList(@Param("boardSort") String boardSort,@Param("option") String option, @Param("keywords") String keywords);
+	
+	//모든 게시글 조회
+	List<BoardVO> getAll();
+	
+	//모든 게시글 좋아요 순으로 조회
+	List<BoardVO> getGoodBoard();
 
 }

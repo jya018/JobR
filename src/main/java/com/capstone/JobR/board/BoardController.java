@@ -78,4 +78,17 @@ public class BoardController {
 	  
 	}
 	
+	
+	//모든 게시글 조회
+	@GetMapping
+	List<BoardVO> getAll(){
+		return service.getAll();
+	}
+	
+	//모든 게시글 좋아요 순으로 조회
+	@PutMapping
+	List<BoardVO> getGoodBoard(){
+		return service.getGoodBoard();
+	}
+	
 }

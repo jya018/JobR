@@ -54,4 +54,14 @@ public class BoardService implements IBoardService {
 		  return mapper.getboardSearchList(boardSort,option, keywords);
 	  
 	  }
+
+	@Override
+	public List<BoardVO> getAll() {
+		return mapper.getAll();
+	}
+
+	@Override
+	public List<BoardVO> getGoodBoard() {
+		return mapper.getGoodBoard();
+	}
 }

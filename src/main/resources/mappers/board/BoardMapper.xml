@@ -2,24 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper
-	namespace="com.capstone.JobR.repository.IBoardMapper">
+<mapper namespace="com.capstone.JobR.repository.IBoardMapper">
 
-	<!--           함수명         리턴타입             패키지주소 -->
-	<select id="getBoardList" resultType="com.capstone.JobR.board.BoardVO">
+	<!-- 함수명 리턴타입 패키지주소 -->
+	<select id="getBoardList"
+		resultType="com.capstone.JobR.board.BoardVO">
 		SELECT * FROM board
 		WHERE boardSort=#{boardSort}
-		order by boardNum desc
+		ORDER BY
+		boardNum DESC
 	</select>
 
-	<insert id="insert" parameterType="com.capstone.JobR.board.BoardVO">
+	<insert id="insert"
+		parameterType="com.capstone.JobR.board.BoardVO">
 		INSERT INTO board
 		(boardName, boardCont, nickname, boardSort)
 		VALUES(#{boardName},#{boardCont},#{nickname}, #{boardSort})
-		<!--  = getBoardName(),getBoardCont(), ..                  -->
+		<!-- = getBoardName(),getBoardCont(), .. -->
 	</insert>
 
-	<select id="getBoard" resultType="com.capstone.JobR.board.BoardVO">
+	<select id="getBoard"
+		resultType="com.capstone.JobR.board.BoardVO">
 		SELECT * FROM board
 		WHERE boardNum=#{boardNum}
 	</select>
@@ -35,30 +38,62 @@
 		DELETE FROM board
 		WHERE boardNum=#{boardNum}
 	</delete>
-	
+
 	<update id="viewCnt">
 		UPDATE board
 		SET view = view + 1
-		WHERE boardNum = #{boardNum}
+		WHERE boardNum =
+		#{boardNum}
 	</update>
 
+	<sql id="search">
+		<if test="option == '제목'">
+			WHERE boardName LIKE CONCAT('%',#{keywords},'%')
+		</if>
+		<if test="option == '내용'">
+			WHERE boardCont LIKE CONCAT('%',#{keywords},'%')
+		</if>
+		<if test="option == '닉네임'">
+			WHERE nickname LIKE CONCAT('%',#{keywords},'%')
+		</if>
+	</sql>
+
+	<select id="getSearchList"
+		resultType="com.capstone.JobR.board.BoardVO">
+		SELECT * FROM board
+		<include refid="search"></include>
+	</select>
+
+	<select id="getboardSearchList"
+		resultType="com.capstone.JobR.board.BoardVO">
+		SELECT * FROM board
+		<include refid="boardsearch"></include>
+	</select>
+
+	<sql id="boardsearch">
+		<if test="option == '제목'">
+			WHERE boardSort=#{boardSort} 
+			AND boardName LIKE	CONCAT('%',#{keywords},'%')
+		</if>
+		<if test="option == '내용'">
+			WHERE boardSort=#{boardSort} 
+			AND boardCont LIKE CONCAT('%',#{keywords},'%')
+		</if>
+		<if test="option == '닉네임'">
+			WHERE boardSort=#{boardSort} 
+			AND nickname LIKE CONCAT('%',#{keywords},'%')
+		</if>
+	</sql>
+
+	<select id="getAll" resultType="com.capstone.JobR.board.BoardVO">
+		SELECT * FROM board
+		ORDER BY boardNum DESC
+	</select>
+
+	<select id="getGoodBoard"
+		resultType="com.capstone.JobR.board.BoardVO">
+		SELECT * FROM board
+		ORDER BY good DESC LIMIT 10
+	</select>
+
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
