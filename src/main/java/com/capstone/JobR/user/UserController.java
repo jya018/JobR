@@ -20,7 +20,7 @@ public class UserController {
 	private IUserService service;
 
 	// 아이디 중복 확인 요청 처리
-	@GetMapping("/{id}")
+	@GetMapping("/checkid/{id}")
 	public String checkId(@PathVariable String id) {
 		int checkId = service.checkId(id);
 		if (checkId == 1) {
@@ -28,6 +28,21 @@ public class UserController {
 			return "fail";
 		} else {
 			// 아이디 사용가능
+			return "success";
+		}
+
+	}
+	
+	//닉네임 중복 확인 요청 처리
+	@GetMapping("/checknick/{nickname}")
+	public String checkNickname(@PathVariable String nickname) {
+		//System.out.println("닉네임을 보여주세요:"+nickname);
+		//System.out.println("int를 보여주세요:"+checkNickname);
+		if (service.checkNickname(nickname) == 1) {
+			// 닉네임 중복됨
+			return "fail";
+		} else {
+			// 닉네임 사용가능
 			return "success";
 		}
 
