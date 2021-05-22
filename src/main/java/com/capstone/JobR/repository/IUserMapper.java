@@ -11,6 +11,8 @@ public interface IUserMapper {
 
 	// 아이디 중복 체크 기능
 	int checkId(String id);
+	
+	int checkNickname(String nickname);
 
 	// 회원 가입 기능
 	void register(UserVO user);
