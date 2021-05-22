@@ -10,6 +10,13 @@
 		FROM user
 		WHERE id=#{id}
 	</select>
+	
+	<!-- 닉네임 중복 확인 SQL -->
+	<select id="checkNickname" resultType="int">
+		SELECT COUNT(*)
+		FROM user
+		WHERE nickname=#{nickname}
+	</select> 
 
 	<!-- 회원 가입 SQL -->
 	<insert id="register" parameterType="com.capstone.JobR.user.UserVO">

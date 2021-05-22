@@ -19,6 +19,11 @@ public class UserService implements IUserService {
 	}
 
 	@Override
+	public int checkNickname(String nickname) {
+		return mapper.checkNickname(nickname);
+	}
+	
+	@Override
 	public void register(UserVO user) {
 		
 		//회원 비밀번호를 암호화 인코딩
