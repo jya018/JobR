@@ -13,8 +13,8 @@
 	<insert id="insert"
 		parameterType="com.capstone.JobR.spec.SpecVO">
 		INSERT INTO spec
-		(companyName, toeic, toefl, teps, opic, tos, internship, degree, score, id)
-		VALUES(#{companyName},#{toeic},#{toefl}, #{teps},#{opic},#{tos},#{internship},#{degree},#{score}, #{id})
+		(ID,companyName, toeic, toefl, teps, opic, tos, internship, degree, score)
+		VALUES(#{ID},#{companyName},#{toeic},#{toefl}, #{teps},#{opic},#{tos},#{internship},#{degree},#{score})
 		<!--  = getBoardName(),getBoardCont(), ..                  -->
 	</insert>
 
