@@ -16,12 +16,12 @@ public class SpecVO {
 		super();
 	}
 
-	public String getId() {
+	public String getID() {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setID(String iD) {
+		id = iD;
 	}
 
 	public String getCompanyName() {
@@ -98,7 +98,7 @@ public class SpecVO {
 
 	@Override
 	public String toString() {
-		return "SpecVO [id=" + id + ", companyName=" + companyName + ", toeic=" + toeic + ", toefl=" + toefl + ", teps="
+		return "SpecVO [ID=" + id + ", companyName=" + companyName + ", toeic=" + toeic + ", toefl=" + toefl + ", teps="
 				+ teps + ", opic=" + opic + ", tos=" + tos + ", internship=" + internship + ", degree=" + degree
 				+ ", score=" + score + "]";
 	}
